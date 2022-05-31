@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="{{ secure_url('/admin') }}" class="brand-link">
-    <img style="float:center;width:200px;height:35px;" src="@if($appSettings){{ asset('frontend_assets//img/logo.png') }}@endif">
+    <img style="float:center;width:200px;height:35px;" src="@if($appSettings){{ asset('public/frontend_assets//img/logo.png') }}@endif">
   </a>
 
   <!-- Sidebar -->

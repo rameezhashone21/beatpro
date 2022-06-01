@@ -404,9 +404,9 @@
         </section>
     </main>
 
-    <script src="{{ asset('public/frontend_assets/js/footer.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/footer.js') }}"></script>
 </body>
-<script src="{{ asset('public/frontend_assets/js/plugins.js') }} " defer></script>
-<script src="{{ asset('public/frontend_assets/js/theme.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/plugins.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/theme.js') }} " defer></script>
 
 </html>

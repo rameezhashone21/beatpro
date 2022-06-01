@@ -283,7 +283,7 @@
                     </div>
                     <div class="col mb-4 mb-md-0">
                         <div class="box border">
-                            <img src="{{ asset('public/frontend_assets/img/services/1.png') }}" class="w-100" alt="">
+                            <img src="{{ asset('frontend_assets/img/services/1.png') }}" class="w-100" alt="">
 
                             <div class="content p-4">
                                 <h4>Custom Beat</h4>
@@ -296,7 +296,7 @@
                     </div>
                     <div class="col mb-4 mb-md-0">
                         <div class="box border">
-                            <img src="{{ asset('public/frontend_assets/img/services/1.png') }}" class="w-100" alt="">
+                            <img src="{{ asset('frontend_assets/img/services/1.png') }}" class="w-100" alt="">
 
                             <div class="content p-4">
                                 <h4>Mix and Mastering</h4>
@@ -309,7 +309,7 @@
                     </div>
                     <div class="col mb-4 mb-md-0">
                         <div class="box border">
-                            <img src="{{ asset('public/frontend_assets/img/services/1.png') }}" class="w-100" alt="">
+                            <img src="{{ asset('frontend_assets/img/services/1.png') }}" class="w-100" alt="">
 
                             <div class="content p-4">
                                 <h4>Drum Kits and Loops</h4>
@@ -335,7 +335,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -343,7 +343,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -351,7 +351,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -359,7 +359,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>

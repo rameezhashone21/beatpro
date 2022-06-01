@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css') }}">
     <title>Home</title>
 </head>
 
 <body>
-    <script src="{{ asset('public/frontend_assets/js/header.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/header.js') }}"></script>
     <main>
         <section class="banner pb-3">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-3 mb-3 mb-md-0">
-                        <img src="{{ asset('public/frontend_assets/img/1.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('frontend_assets/img/1.png') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-8">
                         <h1>Got dem Beatz</h1>
@@ -27,20 +27,20 @@
                         </p>
                         <div class="d-flex flex-wrap ">
                             <div class="mb-4 mb-md-0">
-                                <a href="#" class="btn-1 mx-1 text-white"><img src="{{ asset('public/frontend_assets/img/play-all.png') }}"
+                                <a href="#" class="btn-1 mx-1 text-white"><img src="{{ asset('frontend_assets/img/play-all.png') }}"
                                         class="img-dluid" /> Play All </a>
                             </div>
                             <div class="mb-4 mb-md-0">
-                                <a href="#" class="btn-1 mx-1 text-white"><img src="{{ asset('public/frontend_assets/img/mix.png') }}"
+                                <a href="#" class="btn-1 mx-1 text-white"><img src="{{ asset('frontend_assets/img/mix.png') }}"
                                         class="img-dluid" /> Mix all </a>
                             </div>
                             <div class="mb-4 mb-md-0">
-                                <a href="#" class="btn-1 mx-1 text-center px-3"><img src="{{ asset('public/frontend_assets/img/heart.png') }}"
+                                <a href="#" class="btn-1 mx-1 text-center px-3"><img src="{{ asset('frontend_assets/img/heart.png') }}"
                                         class="img-dluid" /> </a>
                             </div>
                             <div class="mb-4 mb-md-0">
                                 <a href="#" class="text-white text-decoration-none text-uppercase text-white"> <img
-                                        src="{{ asset('public/frontend_assets/img/share.png') }}" alt=""> share (124)</a>
+                                        src="{{ asset('frontend_assets/img/share.png') }}" alt=""> share (124)</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <input type="text" placeholder="search..."
                                 class="text-uppercase form-control rounded-0 search mx-auto input-search">
                             <button class="btn border-0 rounded-0 position-absolute" type="submit" id="search"><img
-                                    src="{{ asset('public/frontend_assets/img/search-icon.png') }}" class="img-fluid" alt="search"> </button>
+                                    src="{{ asset('frontend_assets/img/search-icon.png') }}" class="img-fluid" alt="search"> </button>
                         </form>
                     </div>
                     <div class="col-lg-11 align-items-center justify-content-between mx-auto">
@@ -76,7 +76,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="td_size"><img src="{{ asset('public/frontend_assets/img/1.png') }}" class="img-fluid" alt="">
+                                        <td class="td_size"><img src="{{ asset('frontend_assets/img/1.png') }}" class="img-fluid" alt="">
                                         </td>
                                         <td class="td_size"><a href="#" class="text-dark">01 <svg fill="#fe8e44"
                                                     class="heart" xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td_size"><img src="{{ asset('public/frontend_assets/img/1.png') }}" class="img-fluid" alt="">
+                                        <td class="td_size"><img src="{{ asset('frontend_assets/img/1.png') }}" class="img-fluid" alt="">
                                         </td>
                                         <td class="td_size"><a href="#" class="text-dark">01 <svg fill="#fe8e44"
                                                     class="heart" xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +182,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td_size"><img src="{{ asset('public/frontend_assets/img/1.png') }}" class="img-fluid" alt="">
+                                        <td class="td_size"><img src="{{ asset('frontend_assets/img/1.png') }}" class="img-fluid" alt="">
                                         </td>
                                         <td class="td_size"><a href="#" class="text-dark">01 <svg fill="#fe8e44"
                                                     class="heart" xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +252,7 @@
                         <div class="row row-cols-md-2 row-cols-1 align-items-center justify-content-center">
                             <div class="col">
                                 <div class="img position-relative">
-                                    <img src="{{ asset('public/frontend_assets/img/mem-2.png') }}" class="img-fluid " alt=" ">
+                                    <img src="{{ asset('frontend_assets/img/mem-2.png') }}" class="img-fluid " alt=" ">
                                 </div>
                             </div>
                             <div class="col ">
@@ -267,7 +267,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-lg-block">
-                        <img src="{{ asset('public/frontend_assets/img/mem-1.png') }}" class="img-fluid " alt=" ">
+                        <img src="{{ asset('frontend_assets/img/mem-1.png') }}" class="img-fluid " alt=" ">
                     </div>
                 </div>
             </div>

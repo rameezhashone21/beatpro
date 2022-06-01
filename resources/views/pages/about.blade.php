@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css') }}">
     <title>About</title>
 </head>
 
 <body>
-    <script src="{{ asset('public/frontend_assets/js/header.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/header.js') }}"></script>
     <main>
         <section class="banner_inner d-flex justify-content-center align-items-center">
             <div class="container">
@@ -28,8 +28,8 @@
                 <div class="row">
                     <div class="col-md-6 z-index-1 mb-4 mb-md-0">
                         <div class="position-relative text-center">
-                            <img src="{{ asset('public/frontend_assets/img/img_inner_1.png') }}" alt="" class="img-fluid ">
-                            <img src="{{ asset('public/frontend_assets/img/img_inner_1_fixed.png') }}" alt="" class="img-fluid position-absolute img_fixed_one">
+                            <img src="{{ asset('frontend_assets/img/img_inner_1.png') }}" alt="" class="img-fluid ">
+                            <img src="{{ asset('frontend_assets/img/img_inner_1_fixed.png') }}" alt="" class="img-fluid position-absolute img_fixed_one">
                         </div>
                     </div>
                     <div class="col-md-6 align-self-center">
@@ -57,7 +57,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 z-index-1">
-                        <img src="{{ asset('public/frontend_assets/img/music-container.png') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('frontend_assets/img/music-container.png') }}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -93,9 +93,9 @@
             </div>
         </section>
     </main>
-    <script src="{{ asset('public/frontend_assets/js/footer.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/footer.js') }}"></script>
 </body>
-<script src="{{ asset('public/frontend_assets/js/plugins.js') }} " defer></script>
-<script src="{{ asset('public/frontend_assets/js/theme.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/plugins.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/theme.js') }} " defer></script>
 
 </html>

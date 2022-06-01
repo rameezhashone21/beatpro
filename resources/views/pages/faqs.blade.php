@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/frontend_assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css') }}">
     <title>Faqs</title>
 </head>
 
 <body>
-    <script src="{{ asset('public/frontend_assets/js/header.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/header.js') }}"></script>
     <main>
         <section class="banner_inner d-flex justify-content-center align-items-center">
             <div class="container">
@@ -130,7 +130,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -138,7 +138,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -146,7 +146,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -154,7 +154,7 @@
                     <div class="col mb-4 mb-md-0 text-center">
                         <div class="rounded-3">
                             <a href="javascript:void(0)" class="position-relative text-white fs-5 fw-bold">
-                                <img src="{{ asset('public/frontend_assets/img/contest/1.png') }}assets/img/contest/1.png" class="img-fluid" alt="img">
+                                <img src="{{ asset('frontend_assets/img/contest/1.png') }}assets/img/contest/1.png" class="img-fluid" alt="img">
                                 <span class="position-absolute end-0 start-0">Contest 1</span>
                             </a>
                         </div>
@@ -197,10 +197,10 @@
             </div>
         </section>
     </main>
-    <script src="{{ asset('public/frontend_assets/js/footer.js') }}"></script>
+    <script src="{{ asset('frontend_assets/js/footer.js') }}"></script>
 </body>
-<script src="{{ asset('public/frontend_assets/js/plugins.js') }} " defer></script>
-<script src="{{ asset('public/frontend_assets/js/theme.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/plugins.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/theme.js') }} " defer></script>
 
 </html>
 

@@ -22,9 +22,9 @@
     integrity="sha512-pYQcc5kgavar0ah58/O8hw/6Tbo3mWlmQTmvoi1i96cBz7jQYS9as5J+Nfy32rAHY6CgR9ExwnFMcBdGVcKM7g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('public/admin_dashboard/assets/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin_dashboard/assets/css/adminlte.min.css') }}">
   <!-- All CSS -->
-  <link rel="stylesheet" href="{{ asset('public/admin_dashboard/assets/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin_dashboard/assets/css/app.css') }}">
   @yield('head_style')
 
 </head>
@@ -73,9 +73,9 @@
     integrity="sha512-5R3ngaUdvyhXkQkIqTf/k+Noq3phjmrqlUQyQYbgfI34Mzcx7vLIIYTy/K1VMHkL33T709kfh5y6R9Xy/Cbt7Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- AdminLTE App -->
-  <script src="{{ asset('public/admin_dashboard/assets/js/adminlte.min.js') }}"></script>
+  <script src="{{ asset('admin_dashboard/assets/js/adminlte.min.js') }}"></script>
   <!-- All js -->
-  <script src="{{ asset('public/admin_dashboard/assets/js/app.js')}}"></script>
+  <script src="{{ asset('admin_dashboard/assets/js/app.js')}}"></script>
   @yield('bottom_script')
 
 </body>

@@ -7,6 +7,9 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\SongsController;
 use App\Http\Controllers\AccessController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppSettingController;
@@ -107,6 +110,81 @@ Route::prefix('/admin')->group(function () {
         ->name('.delete')
         ->middleware('checkpermission:delete.roles');
     });
+
+    //Categories
+    Route::get('/categories', [CategoriesController::class, 'index'])
+      ->name('view.categories')
+      ->middleware('checkpermission:view.categories');
+
+    Route::get('/category/add', [CategoriesController::class, 'create'])
+      ->name('create.categories')
+      ->middleware('checkpermission:create.categories');
+
+    Route::post('/category/save', [CategoriesController::class, 'store'])
+      ->name('save.categories')
+      ->middleware('checkpermission:create.categories');
+
+    Route::get('/category/delete/{id}', [CategoriesController::class, 'destroy'])
+      ->name('delete.categories')
+      ->middleware('checkpermission:delete.categories');
+
+    Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])
+      ->name('edit.categories')
+      ->middleware('checkpermission:update.categories');
+
+    Route::put('/category/{id}', [CategoriesController::class, 'update'])
+      ->name('update.categories')
+      ->middleware('checkpermission:update.categories');
+
+  //Albums
+  Route::get('/albums', [AlbumsController::class, 'index'])
+    ->name('view.albums')
+    ->middleware('checkpermission:view.albums');
+
+  Route::get('/album/add', [AlbumsController::class, 'create'])
+    ->name('create.albums')
+    ->middleware('checkpermission:create.albums');
+
+  Route::post('/album/save', [AlbumsController::class, 'store'])
+    ->name('save.albums')
+    ->middleware('checkpermission:create.albums');
+
+  Route::get('/album/delete/{id}', [AlbumsController::class, 'destroy'])
+    ->name('delete.albums')
+    ->middleware('checkpermission:delete.albums');
+
+  Route::get('/album/edit/{id}', [AlbumsController::class, 'edit'])
+    ->name('edit.albums')
+    ->middleware('checkpermission:update.albums');
+
+  Route::put('/album/{id}', [AlbumsController::class, 'update'])
+    ->name('update.albums')
+    ->middleware('checkpermission:update.albums');
+
+  //Songs
+  Route::get('/songs', [SongsController::class, 'index'])
+  ->name('view.songs')
+  ->middleware('checkpermission:view.songs');
+
+  Route::get('/song/add', [SongsController::class, 'create'])
+  ->name('create.songs')
+  ->middleware('checkpermission:create.songs');
+
+  Route::post('/song/save', [SongsController::class, 'store'])
+  ->name('save.songs')
+  ->middleware('checkpermission:create.songs');
+  
+  Route::get('/song/delete/{id}', [SongsController::class, 'destroy'])
+  ->name('delete.songs')
+  ->middleware('checkpermission:delete.songs');
+
+  Route::get('/song/edit/{id}', [SongsController::class, 'edit'])
+  ->name('edit.songs')
+  ->middleware('checkpermission:update.songs');
+
+  Route::put('/song/{id}', [SongsController::class, 'update'])
+  ->name('update.songs')
+  ->middleware('checkpermission:update.songs');
 
     // Site pages
     Route::get('/pages', [PageController::class, 'index'])

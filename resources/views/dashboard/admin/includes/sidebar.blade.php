@@ -52,6 +52,43 @@
         </li>
         @endpermission
 
+        @permission('view.users')
+        <li
+          class="nav-item {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'menu-open' : '' }}">
+          <a href="#"
+            class="nav-link {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Songs
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ url('/admin/categories') }}"
+                class="nav-link {{ request()->is('admin/categories') || request()->is('admin/category/*') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manage Categories</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('/admin/albums') }}"
+                class="nav-link {{ request()->is('admin/albums') || request()->is('admin/album/*') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manage Albums</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('/admin/songs') }}"
+                class="nav-link {{ request()->is('admin/songs') || request()->is('admin/song/*') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Manage Songs</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        @endpermission
+
         @permission('view.pages')
         <li class="nav-header">Site Data</li>
         <li class="nav-item">
@@ -64,6 +101,7 @@
           </a>
         </li>
         @endpermission
+
 
         @permission('view.blog.category')
         <li class="nav-item">

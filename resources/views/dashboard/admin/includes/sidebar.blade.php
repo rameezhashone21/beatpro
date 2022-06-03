@@ -59,7 +59,7 @@
             class="nav-link {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Songs
+              Beats
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
@@ -82,7 +82,7 @@
               <a href="{{ url('/admin/songs') }}"
                 class="nav-link {{ request()->is('admin/songs') || request()->is('admin/song/*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Manage Songs</p>
+                <p>Manage Beats</p>
               </a>
             </li>
           </ul>

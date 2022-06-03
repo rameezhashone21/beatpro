@@ -18,8 +18,7 @@ class SongsController extends Controller
   public function index()
   {
     // Get all pages
-    $songs = Song::all();
-
+    $songs = Song::with('albums')->get();
     return view('dashboard.admin.songs.index', compact('songs'));
   }
 
@@ -63,14 +62,23 @@ class SongsController extends Controller
     $valid = $this->validate($request, [
       'title' => 'required|string',
       'image' => 'required|image',
-      'genre' => 'required|string',
+      'album' => 'required',
+      'song_file' => 'required',
       'status' => 'required',
     ]);
 
-    
+    if ($request->hasFile('song_file')) {
+      // Save file to folder
+      $loc = '/public/songs';
+      $fileData = $request->file('song_file');
+      $fileNameToStore1 = $this->uploadImage($fileData, $loc);
+    } else {
+      $fileNameToStore1 = 'no_img.jpg';
+    }
+
     if ($request->hasFile('image')) {
       // Save image to folder
-      $loc = '/public/albums';
+      $loc = '/public/songs';
       $fileData = $request->file('image');
       $fileNameToStore = $this->uploadImage($fileData, $loc);
     } else {
@@ -78,11 +86,13 @@ class SongsController extends Controller
     }
 
     $data = [
-      'genre_id' => $valid['genre'],
+      'album_id' => $valid['album'],
       'title' => $valid['title'],
       'desc' => $request->desc,
       'price' => $request->price,
+      'lyrics' => $request->lyrics,
       'image' => $fileNameToStore,
+      'song_file' => $fileNameToStore1,
       'status' => $valid['status']
     ];
 
@@ -118,7 +128,9 @@ class SongsController extends Controller
     // Get single page details
     $song = Song::findOrFail($id);
 
-    return view('dashboard.admin.songs.edit', compact('song'));
+    $albums = Album::all();
+
+    return view('dashboard.admin.songs.edit', compact('song','albums'));
   }
 
   /**
@@ -134,13 +146,14 @@ class SongsController extends Controller
     $valid = $this->validate($request, [
       'title' => 'required|string',
       'image' => 'required|image',
-      'genre' => 'required|string',
+      'album' => 'required',
+      'song_file' => 'required',
       'status' => 'required',
     ]);
 
     if ($request->hasFile('image')) {
       // Save image to folder
-      $loc = '/public/albums';
+      $loc = '/public/songs';
       $fileData = $request->file('image');
       $fileNameToStore = $this->uploadImage($fileData, $loc);
       $data1 = [
@@ -149,19 +162,35 @@ class SongsController extends Controller
 
       // Delete previous file
       $song = Song::where('id', $id)->first();
-      Storage::delete('public/albums/' . $song->image);
+      Storage::delete('public/songs/' . $song->image);
+    }
+
+
+      if ($request->hasFile('song_file')) {
+        // Save song file to folder
+        $loc = '/public/songs';
+        $fileData1 = $request->file('song_file');
+        $fileNameToStore1 = $this->uploadImage($fileData1, $loc);
+        $data2 = [
+          'song_file' => $fileNameToStore1
+        ];
+
+      // Delete previous file
+      $song = Song::where('id', $id)->first();
+      Storage::delete('public/songs/' . $song->song_file);
     }
 
     $data = [
-      'genre_id' => $valid['genre'],
+      'album_id' => $valid['album'],
       'title' => $valid['title'],
       'desc' => $request->desc,
       'price' => $request->price,
+      'lyrics' => $request->lyrics,
       'status' => $valid['status']
     ];
 
-    if ($request->hasFile('image')) {
-      $data = array_merge($data1, $data);
+    if ($request->hasFile('image') && $request->hasFile('song_file') ) {
+      $data = array_merge($data1, $data2, $data);
     } else {
       $data = $data;
     }

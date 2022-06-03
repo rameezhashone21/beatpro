@@ -64,7 +64,7 @@
                     <td>{{ ++$key }}. </td>
                     <td>{{ $category->name }}</td>
                     <td><img src="../storage/categories/{{ $category->image }}" width="100px" height="50px"></td>
-                    <td>{{ $category->desc }}</td>
+                    <td>{{ Str::limit($category->desc, 100) }}</td>
                     <td>
                       @if ($category->status == 1)
                       <span class="badge bg-success">{{ __('Active') }}</span>

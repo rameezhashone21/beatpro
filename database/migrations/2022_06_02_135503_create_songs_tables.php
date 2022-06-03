@@ -18,9 +18,11 @@ class CreateSongsTables extends Migration
             $table->string('album_id')->nullable();
             $table->string('title');
             $table->string('image');
+            $table->string('song_file');
             $table->text('desc')->nullable();
             $table->text('lyrics')->nullable();
             $table->tinyInteger('status');
+
             $table->timestamps();
         });
     }

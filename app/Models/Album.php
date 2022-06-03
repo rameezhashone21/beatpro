@@ -22,4 +22,14 @@ class Album extends Model
     'image',
     'status',
   ];
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'genre_id');
+    }
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class,'album_id');
+    }
 }

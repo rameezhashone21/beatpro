@@ -54,15 +54,12 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="inputTitle">Price</label>
-                  <input type="text" name="price" class="form-control" id="inputTitle" placeholder="Enter price"
-                    value="{{ $album->price }}">
-                </div>
-
-                <div class="form-group">
-                  <label for="inputTitle">genre</label>
-                  <input type="text" name="genre" class="form-control" id="inputTitle" placeholder="Enter genre"
-                    value="{{ $album->genre_id }}">
+                <label for="inputTitle">Genre</label>
+                <select class="form-control" name="genre">
+                @foreach($genres as $genre)
+                <option value="{{ $genre->id }}" {{ $genre->id == $album->genre_id ? 'selected' : '' }}>{{ $genre->name }}</option>
+                @endforeach
+                </select>
                 </div>
                 
                 <div class="form-group">

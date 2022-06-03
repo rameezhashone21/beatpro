@@ -48,7 +48,7 @@
 
                 <div class="form-group">
                   <label for="editor">Description</label>
-                  <textarea name="desc" id="editor" rows="3" class="form-control"></textarea>
+                  <textarea name="desc" rows="3" class="form-control"></textarea>
                 </div>
 
                 <div class="form-group">

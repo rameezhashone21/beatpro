@@ -20,4 +20,9 @@ class Category extends Model
     'image',
     'status',
   ];
+
+  public function albums()
+  {
+      return $this->hasMany(Album::class,'genre_id');
+  }
 }

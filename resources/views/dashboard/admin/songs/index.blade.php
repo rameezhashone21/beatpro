@@ -66,11 +66,16 @@
                     <td>{{ ++$key }}. </td>
                     <td>{{ $song->title }}</td>
                     <td><img src="../storage/songs/{{ $song->image }}" width="100px" height="50px"></td>
-                    <td>{{ $album->desc }}</td>
-                    <td>{{ $album->lyrics }}</td>
-                    <td>{{ $album->album_id }}</td>
+                    <td>{{ Str::limit($song->desc, 100) }}</td>
+                    <td>{{ Str::limit($song->lyrics, 100) }}</td>
+                    <td>{{ $song->albums->title }}</td>
+                    <td><audio controls>
+                    <source src="../storage/songs/{{ $song->song_file }}" type="audio/ogg">
+                    <source src="../storage/songs/{{ $song->song_file }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                    </audio></td>
                     <td>
-                      @if ($album->status == 1)
+                      @if ($song->status == 1)
                       <span class="badge bg-success">{{ __('Active') }}</span>
                       @else
                       <span class="badge bg-danger">{{ __('Deactive') }}</span>

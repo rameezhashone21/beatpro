@@ -68,7 +68,7 @@
 
                 <div class="form-group">
                   <label for="inputLevel">Album</label>
-                  <select class="form-control" name="genre" id="inputLevel">
+                  <select class="form-control" name="album" id="inputLevel">
                     @foreach($albums as $album)
                     <option value="{{ $album->id }}"> 
                     {{ $album->title }} 

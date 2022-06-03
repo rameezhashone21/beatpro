@@ -1,6 +1,6 @@
 @extends('dashboard.admin.layouts.app')
 
-@section('page_title', 'Edit Albums')
+@section('page_title', 'Edit Songs')
 
 @section('content')
 <div class="content-wrapper">
@@ -14,7 +14,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('/admin/categories') }}">Users</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('/admin/categories') }}">Songs</a></li>
             <li class="breadcrumb-item active">Edit</li>
           </ol>
         </div>
@@ -34,51 +34,64 @@
           <!-- general form elements -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Album</h3>
+              <h3 class="card-title">Edit Song</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ url('/admin/album/'.$album->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/admin/song/'.$song->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="card-body">
                 <div class="form-group">
                   <label for="inputTitle">Name</label>
                   <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Enter name"
-                    value="{{ $album->title }}">
+                    value="{{ $song->title }}">
                 </div>           
 
                 <div class="form-group">
                   <label for="editor">Description</label>
-                  <textarea name="desc" id="editor" rows="3" class="form-control">{{ $album->desc }}</textarea>
+                  <textarea name="desc" rows="3" class="form-control">{{ $song->desc }}</textarea>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputTitle">Price</label>
-                  <input type="text" name="price" class="form-control" id="inputTitle" placeholder="Enter price"
-                    value="{{ $album->price }}">
+                  <label for="editor">lyrics</label>
+                  <textarea name="lyrics" id="editor" rows="3" class="form-control">{{ $song->lyrics }}</textarea>
                 </div>
 
-                <div class="form-group">
-                  <label for="inputTitle">genre</label>
-                  <input type="text" name="genre" class="form-control" id="inputTitle" placeholder="Enter genre"
-                    value="{{ $album->genre_id }}">
-                </div>
-                
                 <div class="form-group">
                   <label for="inputFile">Image</label><br>
                   <figure class="figure">
-                    <img src="{{ url('/storage/albums/'.$album->image) }}"
+                    <img src="{{ url('/storage/songs/'.$song->image) }}"
                       class="figure-img img-fluid rounded img-thumbnail" alt="Profile photo">
                   </figure>
                   <input type="file" name="image" class="form-control" id="inputFile">
                 </div>
+
+                <div class="form-group">
+                  <label for="inputFile">Song</label><br>
+                  <figure class="figure">
+                    <img src="{{ url('/storage/songs/mp3logo.png') }}"
+                      class="figure-img img-fluid rounded img-thumbnail" alt="Profile photo">
+                  </figure>
+                  <input type="file" name="song_file" class="form-control" id="inputFile">
+                </div>
+
+                <div class="form-group">
+                <label for="inputFile">Album</label><br>
+                <select class="form-control" name="album">
+                @foreach($albums as $album)
+                <option value="{{ $album->id }}" {{ $album->id == $song->album_id ? 'selected' : '' }}>{{ $album->title }}</option>
+                @endforeach
+                </select>
+                </div>
+                
+                
                 
                 <div class="form-group">
                   <label for="inputStatus">Status</label>
                   <select class="form-control" name="status" id="inputStatus">
-                    <option value="1" @if($album->status == 1) {{ __('selected') }} @endif>Active</option>
-                    <option value="0" @if($album->status == 0) {{ __('selected') }} @endif>Deactive</option>
+                    <option value="1" @if($song->status == 1) {{ __('selected') }} @endif>Active</option>
+                    <option value="0" @if($song->status == 0) {{ __('selected') }} @endif>Deactive</option>
                   </select>
                 </div>
               </div>

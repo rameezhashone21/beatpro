@@ -20,6 +20,12 @@ class Song extends Model
     'desc',
     'lyrics',
     'image',
+    'song_file',
     'status',
   ];
+
+    public function albums()
+    {
+        return $this->belongsTo(Album::class, 'album_id');
+    }
 }

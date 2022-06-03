@@ -18,7 +18,7 @@ class AlbumsController extends Controller
   public function index()
   {
     // Get all pages
-    $albums = Album::all();
+    $albums = Album::with('categories')->get();
 
     return view('dashboard.admin.albums.index', compact('albums'));
   }
@@ -116,9 +116,12 @@ class AlbumsController extends Controller
   public function edit($id)
   {
     // Get single page details
+
+    $genres = Category::all();
+
     $album = Album::findOrFail($id);
 
-    return view('dashboard.admin.albums.edit', compact('album'));
+    return view('dashboard.admin.albums.edit', compact('album','genres'));
   }
 
   /**

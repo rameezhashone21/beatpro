@@ -66,9 +66,9 @@
                     <td>{{ ++$key }}. </td>
                     <td>{{ $album->title }}</td>
                     <td><img src="../storage/albums/{{ $album->image }}" width="100px" height="50px"></td>
-                    <td>{{ $album->desc }}</td>
-                    <td>{{ $album->price }}</td>
-                    <td>{{ $album->genre_id }}</td>
+                    <td>{{ Str::limit($album->desc, 100) }}</td>
+                    <td>{{ $album->price }}$</td>
+                    <td>{{ $album->categories->name }}</td>
                     <td>
                       @if ($album->status == 1)
                       <span class="badge bg-success">{{ __('Active') }}</span>

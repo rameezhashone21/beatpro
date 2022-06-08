@@ -680,7 +680,9 @@ body.offcanvas-active {
 
 /* END  plus minus accordion */
 
-
+.text_dark p {
+    color: #000;
+}
 /*========= MEDIA QUERIES===========*/
 
 @media (max-width: 1399.98px) {

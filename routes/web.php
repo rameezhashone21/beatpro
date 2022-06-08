@@ -33,7 +33,7 @@ Route::get('/about', [PagesController::class, 'about']);
 Route::get('/faqs', [PagesController::class, 'faqs']);
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/membership', [MembershipController::class, 'index']);
-Route::get('/services', [ServicesController::class, 'index']);
+Route::get('/services', [PagesController::class, 'services']);
 
 Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -136,6 +136,31 @@ Route::prefix('/admin')->group(function () {
       ->name('update.categories')
       ->middleware('checkpermission:update.categories');
 
+  //Services
+  Route::get('/services', [ServicesController::class, 'index'])
+    ->name('view.services')
+    ->middleware('checkpermission:view.services');
+
+  Route::get('/service/add', [ServicesController::class, 'create'])
+    ->name('create.services')
+    ->middleware('checkpermission:create.services');
+
+  Route::post('/service/save', [ServicesController::class, 'store'])
+    ->name('save.services')
+    ->middleware('checkpermission:create.services');
+
+  Route::get('/service/delete/{id}', [ServicesController::class, 'destroy'])
+    ->name('delete.services')
+    ->middleware('checkpermission:delete.services');
+
+  Route::get('/service/edit/{id}', [ServicesController::class, 'edit'])
+    ->name('edit.services')
+    ->middleware('checkpermission:update.services');
+
+  Route::put('/service/{id}', [ServicesController::class, 'update'])
+    ->name('update.services')
+    ->middleware('checkpermission:update.services');
+
   //Albums
   Route::get('/albums', [AlbumsController::class, 'index'])
     ->name('view.albums')
@@ -156,6 +181,10 @@ Route::prefix('/admin')->group(function () {
   Route::get('/album/edit/{id}', [AlbumsController::class, 'edit'])
     ->name('edit.albums')
     ->middleware('checkpermission:update.albums');
+
+    Route::get('/album/view/{id}', [AlbumsController::class, 'view_songs'])
+    ->name('view.albums')
+    ->middleware('checkpermission:view.albums');  
 
   Route::put('/album/{id}', [AlbumsController::class, 'update'])
     ->name('update.albums')

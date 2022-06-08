@@ -1,6 +1,6 @@
 @extends('dashboard.admin.layouts.app')
 
-@section('page_title', 'Albums')
+@section('page_title', 'Services')
 
 @section('head_style')
 <!-- Datatables -->
@@ -21,7 +21,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Albums</li>
+            <li class="breadcrumb-item active">Services</li>
           </ol>
         </div>
       </div>
@@ -38,10 +38,10 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Manage Albums</h3>
+              <h3 class="card-title">Manage Services</h3>
               <div class="card-tools">
-                <a href="{{ url('/admin/album/add') }}" class="btn btn-primary">
-                  <i class="fa fa-user mr-2"></i> Add new album
+                <a href="{{ url('/admin/service/add') }}" class="btn btn-primary">
+                  <i class="fa fa-user mr-2"></i> Add new service
                 </a>
               </div>
             </div>
@@ -51,42 +51,32 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Title</th>
+                    <th>Name</th>
                     <th>Image</th>
                     <th>Description</th>
-                    <th>Price</th>
-                    <th>Genre</th>
                     <th>Status</th>
-                    <th>View Songs</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($albums as $key=>$album)
+                  @foreach ($services as $key=>$service)
                   <tr>
                     <td>{{ ++$key }}. </td>
-                    <td>{{ $album->title }}</td>
-                    <td><img src="../storage/albums/{{ $album->image }}" width="100px" height="50px"></td>
-                    <td>{{ Str::limit($album->desc, 100) }}</td>
-                    <td>{{ $album->price }}$</td>
-                    <td>{{ $album->categories->name }}</td>
+                    <td>{{ $service->name }}</td>
+                    <td><img src="../storage/services/{{ $service->image }}" width="100px" height="50px"></td>
+                    <td>{{ Str::limit($service->desc, 100) }}</td>
                     <td>
-                      @if ($album->status == 1)
+                      @if ($service->status == 1)
                       <span class="badge bg-success">{{ __('Active') }}</span>
                       @else
                       <span class="badge bg-danger">{{ __('Deactive') }}</span>
                       @endif
                     </td>
-                    <td>
-                    <a href="{{ url('/admin/album/view/'.$album->id) }}" class="btn btn-success btn-sm"><i
-                          class=" mr-3"></i>Songs</a>
-                    </td>
                     <td style="width: 11rem">
-
-                      <a href="{{ url('/admin/album/edit/'.$album->id) }}" class="btn btn-info btn-sm"><i
+                      <a href="{{ url('/admin/service/edit/'.$service->id) }}" class="btn btn-info btn-sm"><i
                           class="fas fa-edit mr-2"></i> Edit</a>
 
-                      <a href="{{ url('/admin/album/delete/'.$album->id) }}" class="btn btn-danger btn-sm"><i
+                      <a href="{{ url('/admin/service/delete/'.$service->id) }}" class="btn btn-danger btn-sm"><i
                           class="fa fa-trash mr-2"></i> Delete</a>
                     </td>
                   </tr>

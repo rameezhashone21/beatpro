@@ -89,6 +89,22 @@
         </li>
         @endpermission
 
+        @permission('view.users')
+        <li
+          class="nav-item {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'menu-open' : '' }}">
+          <a href="{{ url('/admin/services') }}"
+            class="nav-link {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Manage Services
+              <i class=""></i>
+            </p>
+          </a>
+        </li>
+        @endpermission
+
+        
+
         @permission('view.pages')
         <li class="nav-header">Site Data</li>
         <li class="nav-item">

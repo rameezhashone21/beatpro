@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Category;
 use App\Models\Album;
+use App\Models\Song;
 
 
 class AlbumsController extends Controller
@@ -122,6 +123,14 @@ class AlbumsController extends Controller
     $album = Album::findOrFail($id);
 
     return view('dashboard.admin.albums.edit', compact('album','genres'));
+  }
+
+  public function view_songs($id)
+  {
+    // Get single page details
+    $songs = Song::where('album_id',$id)->get();
+
+    return view('dashboard.admin.albums.view', compact('songs'));
   }
 
   /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
+use App\Models\Song;
 
 class PagesController extends Controller
 {
@@ -13,8 +15,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $title = "Welcome to my App";
-        return view('pages.index', compact('title'));
+        $songs = Song::with('albums')->get();
+        return view('pages.index', compact('songs'));
     }
 
     public function about()
@@ -30,6 +32,12 @@ class PagesController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function services()
+    {
+        $services = Service::get();
+        return view('pages.services.index', compact('services'));
     }
 }
 

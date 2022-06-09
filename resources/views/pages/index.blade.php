@@ -317,7 +317,7 @@ function dosomething(element){
 
     wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    waveColor: 'rgb(253, 116, 61)',
+    waveColor: 'rgb(254, 179, 78)',
     progressColor: 'black'
 });
 

@@ -35,6 +35,7 @@ Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/membership', [MembershipController::class, 'index']);
 Route::get('/services', [PagesController::class, 'services']);
 
+
 Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')

@@ -50,7 +50,7 @@
        
         <section class="tracks py-lg-5 py-3">
             <div class="col-12  text-center py-md-5 py-3">
-                <h3 class="fs-1 position-relative">Top Songs</h3>
+                <h3 class="fs-1 position-relative">Top Beats</h3>
             </div>
             <div class="container">
                 <div class="row ">
@@ -357,8 +357,8 @@ function dosomething(element){
 
     wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    waveColor: 'rgb(254, 179, 78)',
-    progressColor: 'white'
+    waveColor: '##fd743d',
+    progressColor: 'rgb(254, 179, 78)'
 });
 
 const loadSong = wavesurfer.load('../storage/songs/'+element.value+'');

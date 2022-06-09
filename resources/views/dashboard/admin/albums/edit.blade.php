@@ -70,6 +70,11 @@
                   </figure>
                   <input type="file" name="image" class="form-control" id="inputFile">
                 </div>
+
+                <div class="form-group">
+                  <label for="inputTitle">Price</label>
+                  <input type="text" name="price" class="form-control" id="inputTitle" placeholder="Enter title">
+                </div>
                 
                 <div class="form-group">
                   <label for="inputStatus">Status</label>

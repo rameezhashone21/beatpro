@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Song;
+use App\Models\Album;
 
 class PagesController extends Controller
 {
@@ -15,8 +16,9 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $songs = Song::with('albums')->get();
-        return view('pages.index', compact('songs'));
+        $songs = Song::with('albums')->take(4)->get();
+        $albums = Album::take(4)->get();
+        return view('pages.index', compact('songs','albums'));
     }
 
     public function about()
@@ -38,6 +40,19 @@ class PagesController extends Controller
     {
         $services = Service::get();
         return view('pages.services.index', compact('services'));
+    }
+
+    public function all_tracks()
+    {
+        $songs = Song::with('albums')->get(); 
+        return view('pages.all_tracks', compact('songs'));
+    }
+
+    public function specific_album($id)
+    {
+        $album = Album::where('id',$id)->first();
+        $songs = Song::where('album_id',$id)->get(); 
+        return view('pages.specific_album', compact('songs','album'));
     }
 }
 

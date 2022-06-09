@@ -317,8 +317,8 @@ function dosomething(element){
 
     wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    waveColor: 'blue',
-    progressColor: 'purple'
+    waveColor: 'yellow',
+    progressColor: 'black'
 });
 
 const loadSong = wavesurfer.load('../storage/songs/'+element.value+'');

@@ -377,7 +377,6 @@ wavesurfer.on('ready', () => {
     wavesurfer.playPause();
 })
 
-
 $('.controls .btn').on('click', function(){
       var action = $(this).data('action');
       switch (action) {

@@ -141,8 +141,16 @@ body.offcanvas-active {
 .logo-img {
     height: 20px;
 }
-
-
+#playSong {
+    left: -15px;
+    top: 0;
+    margin: 0 auto;
+    right: 0;
+    bottom: 0;
+}
+#playSong svg{
+    width:35px;
+}
 /* ============ mobile view ============ */
 
 @media all and (max-width: 991px) {

@@ -353,13 +353,22 @@ let wavesurfer;
 
 function dosomething(element){
 
-    wavesurfer?.destroy()
+        const getSongFromLocalStorage = localStorage.getItem('music_current_song')
 
-    wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: '#fd743d',
-    progressColor: 'rgb(254, 179, 78)'
-});
+        if(getSongFromLocalStorage === element.value) {
+            wavesurfer.playPause()
+            return;
+        }
+
+        localStorage.setItem('music_current_song', element.value)
+
+        wavesurfer?.destroy()
+
+        wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: '#fd743d',
+            progressColor: 'rgb(254, 179, 78)'
+        });
 
 const loadSong = wavesurfer.load('../storage/songs/'+element.value+'');
 

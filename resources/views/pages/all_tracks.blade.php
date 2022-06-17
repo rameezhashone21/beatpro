@@ -153,7 +153,20 @@
 
 let wavesurfer;
 
+console.log("Hello")
+
 function dosomething(element){
+
+    console.log(element.value)
+
+    const getSongFromLocalStorage = localStorage.getItem('music_current_song')
+
+    if(getSongFromLocalStorage === element.value) {
+        wavesurfer.playPause()
+        return;
+    }
+
+    localStorage.setItem('music_current_song', element.value)
 
     wavesurfer?.destroy()
 

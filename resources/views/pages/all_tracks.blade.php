@@ -49,21 +49,19 @@
         </section>
 
         <section class="tracks py-lg-5 py-3">
-        <div class="col-12  text-center py-md-5 py-3">
-            <h3 class="fs-1 position-relative">All Beats</h3>
-        </div>
+            <div class="col-12  text-center py-md-5 py-3">
+                <h3 class="fs-1 position-relative">All Beats</h3>
+            </div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-lg-8 offset-lg-1">
-                        <!-- <form action="#" class="position-relative">
-                            <input type="text" placeholder="search..."
-                                class="text-uppercase form-control rounded-0 search mx-auto input-search">
-                            <button class="btn border-0 rounded-0 position-absolute" type="submit" id="search"><img
-                                    src="{{ asset('frontend_assets/img/search-icon.png') }}" class="img-fluid" alt="search"> </button>
-                        </form> -->
-                    </div>
                     <div class="col-lg-11 align-items-center justify-content-between mx-auto">
-                    <div id="waveform"></div>
+                    <div class="py-4" id="waveform"></div>
+                        <form action="{{ route('search') }}" class="position-relative" method="GET">
+                            <input name="search" type="text" placeholder="search..."
+                                class="text-uppercase form-control rounded-0 search mx-auto input-search">
+                            <button type="submit" class="btn border-0 rounded-0 position-absolute" type="submit" id="search"><img
+                                    src="{{ asset('frontend_assets/img/search-icon.png') }}" class="img-fluid" alt="search"> </button>
+                        </form>
                         <div class="table-responsive my-4">
                             <table class="table">
                                 <thead>
@@ -80,7 +78,12 @@
                                 <tbody>
                                     @foreach($songs as $song)
                                     <tr>
-                                        <td class="td_size"><img src="../storage/songs/{{ $song->image }}" class="img-fluid" alt="">
+                                        <td class="td_size position-relative">
+                                            <img src="../storage/songs/{{ $song->image }}" class="img-fluid" alt="" width="100" height="100">
+                                        <button class="border-0 play-pause-button py-2 px-3 bg-transparent position-absolute" value="{{ $song->song_file }}" 
+                                        id="playSong" onclick="dosomething(this)">
+                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z"/></svg>
+                                        </button>
                                         </td>
                                         <td class="td_size"><a href="#" class="text-dark">{{$song->id}} <svg fill="#fe8e44"
                                                     class="heart" xmlns="http://www.w3.org/2000/svg"
@@ -125,16 +128,15 @@
                                                                 d="M511.1 367.1c0 44.18-42.98 80-95.1 80s-95.1-35.82-95.1-79.1c0-44.18 42.98-79.1 95.1-79.1c11.28 0 21.95 1.92 32.01 4.898V148.1L192 224l-.0023 208.1C191.1 476.2 149 512 95.1 512S0 476.2 0 432c0-44.18 42.98-79.1 95.1-79.1c11.28 0 21.95 1.92 32 4.898V126.5c0-12.97 10.06-26.63 22.41-30.52l319.1-94.49C472.1 .6615 477.3 0 480 0c17.66 0 31.97 14.34 32 31.99L511.1 367.1z" />
                                                         </svg></a>
                                                 </div>
-                                                <div class="">
-                                                    <button class="border py-2 px-3" href="javscript:void(0)" value="{{ $song->song_file }}" id="playSong" onclick="dosomething(this)">Play</button>
-                                                </div>
-
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach  
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="text-center">
+                            <a href="{{url('all_tracks')}}" class="btn-1">All Tracks</a>
                         </div>
                     </div>
                 </div>
@@ -153,35 +155,58 @@
 
 let wavesurfer;
 
-console.log("Hello")
-
 function dosomething(element){
+    
+        const createSongPlayer = () => {
+            localStorage.setItem('music_current_song', element.value)
 
-    console.log(element.value)
+            wavesurfer?.destroy()
+    
+            wavesurfer = WaveSurfer.create({
+                container: '#waveform',
+                waveColor: '#fd743d',
+                progressColor: 'rgb(254, 179, 78)'
+            });
+        }
+    
+        const playSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z"/></svg>';
+        const pauseSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM224 191.1v128C224 337.7 209.7 352 192 352S160 337.7 160 320V191.1C160 174.3 174.3 160 191.1 160S224 174.3 224 191.1zM352 191.1v128C352 337.7 337.7 352 320 352S288 337.7 288 320V191.1C288 174.3 302.3 160 319.1 160S352 174.3 352 191.1z"/></svg>';
+    
+    
+         $('.play-pause-button').each(function(index, item) {
+            $(item).html(playSvg)
+        })
 
-    const getSongFromLocalStorage = localStorage.getItem('music_current_song')
+        const getSongFromLocalStorage = localStorage.getItem('music_current_song')
 
-    if(getSongFromLocalStorage === element.value) {
-        wavesurfer.playPause()
-        return;
-    }
-
-    localStorage.setItem('music_current_song', element.value)
-
-    wavesurfer?.destroy()
-
-    wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: '#fd743d',
-    progressColor: 'rgb(254, 179, 78)'
-});
+        if(getSongFromLocalStorage === element.value) {
+            
+            try {
+                wavesurfer.playPause()
+                return;
+            } catch {
+                localStorage.removeItem('music_current_song')
+                createSongPlayer();
+            }
+           
+           
+        }
+        
+        createSongPlayer();
 
 const loadSong = wavesurfer.load('../storage/songs/'+element.value+'');
+
+wavesurfer.on('pause', () => {
+    $(element).html(playSvg)
+})
+
+wavesurfer.on('play', () => {
+    $(element).html(pauseSvg)
+})
 
 wavesurfer.on('ready', () => {
     wavesurfer.playPause();
 })
-
 
 $('.controls .btn').on('click', function(){
       var action = $(this).data('action');
@@ -201,10 +226,17 @@ $('.controls .btn').on('click', function(){
       }
     });
 
+    
 };
 
     
-
+// $("#playSong").click(function() {
+//      $(this).html(
+//      $(this).html() == 
+//      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM224 191.1v128C224 337.7 209.7 352 192 352S160 337.7 160 320V191.1C160 174.3 174.3 160 191.1 160S224 174.3 224 191.1zM352 191.1v128C352 337.7 337.7 352 320 352S288 337.7 288 320V191.1C288 174.3 302.3 160 319.1 160S352 174.3 352 191.1z"/></svg>' ? 
+//      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z"/></svg>' : 
+//      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM224 191.1v128C224 337.7 209.7 352 192 352S160 337.7 160 320V191.1C160 174.3 174.3 160 191.1 160S224 174.3 224 191.1zM352 191.1v128C352 337.7 337.7 352 320 352S288 337.7 288 320V191.1C288 174.3 302.3 160 319.1 160S352 174.3 352 191.1z"/></svg>');
+// });
 
 
 

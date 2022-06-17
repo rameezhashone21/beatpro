@@ -42,9 +42,15 @@ class PagesController extends Controller
         return view('pages.services.index', compact('services'));
     }
 
-    public function all_tracks()
+    public function all_tracks(Request $request)
     {
-        $songs = Song::with('albums')->get(); 
+        $search = $request->input('search');
+  
+        $songs = Song::query()
+                    ->orwhere('title', 'LIKE', "%{$search}%")
+                    ->get();
+        
+        //$songs = Song::with('albums')->get(); 
         return view('pages.all_tracks', compact('songs'));
     }
 

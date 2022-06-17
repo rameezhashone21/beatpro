@@ -34,7 +34,7 @@ Route::get('/faqs', [PagesController::class, 'faqs']);
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/membership', [MembershipController::class, 'index']);
 Route::get('/services', [PagesController::class, 'services']);
-Route::get('/all_tracks', [PagesController::class, 'all_tracks']);
+Route::get('/all_tracks', [PagesController::class, 'all_tracks'])->name('search');
 Route::get('/album/{id}', [PagesController::class, 'specific_album']);
 
 

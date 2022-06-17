@@ -28,7 +28,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-10">
                         <div class="accordion" id="accordionExample">
-                            <!--<div class="accordion-item custom-accordion">-->
+                            <!-- <div class="accordion-item custom-accordion">-->
                             <!--    <h2 class="accordion-header" id="headingOne1">-->
                             <!--        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">-->
                             <!--               01) What kind of beats do you guys produce?-->
@@ -41,25 +41,25 @@
                             <!--            </p>-->
                             <!--        </div>-->
                             <!--    </div>-->
-                            <!--</div>-->
-                            <!--<div class="accordion-item custom-accordion">-->
-                            <!--    <h2 class="accordion-header" id="headingTwo1">-->
-                            <!--        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">-->
-                            <!--            02)  Have you produced beats for anything I might’ve heard of?-->
-                            <!--        </button>-->
-                            <!--    </h2>-->
-                            <!--    <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1" data-bs-parent="#accordionExample">-->
-                            <!--        <div class="accordion-body">-->
-                            <!--            <p class="accordion-desc">-->
-                            <!--                Yes. We’ve placed music on video games, such as Def Jam Vendetta, TV shows like Law & Order, in addition to working with artists like Bossman, Roddy Rackzz, and YG Teck.-->
-                            <!--            </p>-->
-                            <!--        </div>-->
-                            <!--    </div>-->
-                            <!--</div>-->
+                            <!--</div> -->
+                            <div class="accordion-item custom-accordion">
+                                <h2 class="accordion-header" id="headingTwo1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                                        01) What kind of beats do you offer?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p class="accordion-desc">
+                                            Our roster of producers is versatile and whether you need a loop or beat for a hip hop, pop, trap, dance, or R&B track you can find quality tracks here.
+                                        </p>
+                                    </div>
+                                </div> 
+                            </div> 
                             <div class="accordion-item custom-accordion ">
                                 <h2 class="accordion-header" id="headingThree1">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
-                                        01)Sounds interesting. How do I begin?
+                                        02) Sounds interesting. How do I begin?
                                     </button>
                                 </h2>
                                 <div id="collapseThree1" class="accordion-collapse collapse" aria-labelledby="headingThree1" data-bs-parent="#accordionExample">
@@ -73,7 +73,7 @@
                             <div class="accordion-item custom-accordion ">
                                 <h2 class="accordion-header" id="headingFour">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        02) Do you guys offer beats on a lease?
+                                        03) Do you guys offer beats on a lease?
                                     </button>
                                 </h2>
                                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
@@ -87,7 +87,7 @@
                             <div class="accordion-item custom-accordion ">
                                 <h2 class="accordion-header" id="headingFive">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                        03) What makes you different than other beats-producing companies?
+                                        04) What makes you different than other beats-producing companies?
                                     </button>
                                 </h2>
                                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -103,7 +103,7 @@
                              <div class="accordion-item custom-accordion ">
                                 <h2 class="accordion-header" id="headingSix">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseFive">
-                                        04) What do you hope to achieve by producing beats for artists?
+                                        05) What do you hope to achieve by producing beats for artists?
                                     </button>
                                 </h2>
                                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">

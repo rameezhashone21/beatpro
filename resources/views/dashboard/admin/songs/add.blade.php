@@ -62,6 +62,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="inputTitle">Price</label>
+                  <input type="number" name="price" class="form-control" id="inputTitle" placeholder="Enter price">
+                </div>
+
+                <div class="form-group">
                   <label for="inputFile">Song File</label>
                   <input type="file" name="song_file" class="form-control" id="inputFile">
                 </div>

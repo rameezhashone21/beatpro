@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel Add To Cart Function - ItSolutionStuff.com</title>
+    <title>GotDemBeatz - @yield('title')</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -48,16 +48,15 @@
             </div>
         </section>
 
-        <div class="container pt-5">  
-        @if(session('success'))
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div> 
-        @endif
         @yield('content')
-        </div>
-  
+
         @yield('scripts')
-<script src="{{ asset('frontend_assets/js/footer.js') }}"></script>     
+        
+    </main>    
+  <script src="{{ asset('frontend_assets/js/footer.js') }}"></script>     
 </body>
+<!-- <script src="{{ asset('frontend_assets/js/plugins.js') }} " defer></script>
+<script src="{{ asset('frontend_assets/js/theme.js') }} " defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/wavesurfer.js"></script> -->
 </html>

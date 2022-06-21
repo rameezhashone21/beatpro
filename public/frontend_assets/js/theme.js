@@ -38,6 +38,21 @@ $(document).ready(function() {
     })
 });
 
+   // SLICK SLIDER
+    //Logo Slider
+    $(".AlbumSlider").slick({
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+    });
+
+    // SLICK SLIDER END
+
+
 function close_offcanvas() {
     // darken_screen(false);
     document.querySelector('.mobile-offcanvas.show').classList.remove('show');

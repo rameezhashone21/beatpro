@@ -16,8 +16,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $songs = Song::with('albums')->take(4)->get();
-        $albums = Album::take(4)->get();
+        $songs = Song::with('albums')->take(10)->get();
+        $albums = Album::take(5)->get();
         return view('pages.index', compact('songs','albums'));
     }
 

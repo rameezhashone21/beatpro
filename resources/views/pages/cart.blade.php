@@ -5,6 +5,11 @@
 <div class="col-12  text-center py-md-5 py-3">
     <h3 class="fs-1 position-relative">Shopping Cart</h3>
 </div>
+@if(session('success'))
+<div class="alert alert-success">
+{{ session('success') }}
+</div> 
+@endif
 <table id="cart" class="table table-hover table-condensed">
     <thead>
         <tr>

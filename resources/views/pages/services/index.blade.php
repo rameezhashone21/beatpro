@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css') }}">
-    <title>Our Services</title>
-</head>
-
-<body>
-    <script src="{{ asset('frontend_assets/js/header.js') }}"></script>
-    <main>
+@extends('layout')
+@section('title', 'Shopping Cart')
+@section('content')
         <section class="banner_inner d-flex justify-content-center align-items-center">
             <div class="container">
                 <div class="row">
@@ -70,10 +57,4 @@
         </section>
         @endif
         @endforeach
-    </main>
-    <script src="{{ asset('frontend_assets/js/footer.js') }}"></script>
-</body>
-<script src="{{ asset('frontend_assets/js/plugins.js') }} " defer></script>
-<script src="{{ asset('frontend_assets/js/theme.js') }} " defer></script>
-
-</html>
+@endsection

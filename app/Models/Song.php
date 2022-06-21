@@ -20,6 +20,7 @@ class Song extends Model
     'desc',
     'lyrics',
     'image',
+    'price',
     'song_file',
     'status',
   ];

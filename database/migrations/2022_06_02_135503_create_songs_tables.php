@@ -19,6 +19,7 @@ class CreateSongsTables extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('song_file');
+            $table->string('price');
             $table->text('desc')->nullable();
             $table->text('lyrics')->nullable();
             $table->tinyInteger('status');

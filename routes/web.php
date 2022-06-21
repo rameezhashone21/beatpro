@@ -37,6 +37,10 @@ Route::get('/services', [PagesController::class, 'services']);
 Route::get('/all_tracks', [PagesController::class, 'all_tracks'])->name('search');
 Route::get('/album/{id}', [PagesController::class, 'specific_album']);
 
+Route::get('cart', [SongsController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [SongsController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [SongsController::class, 'cartupdate'])->name('update.cart');
+Route::delete('remove-from-cart', [SongsController::class, 'remove'])->name('remove.from.cart');
 
 Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'index'])

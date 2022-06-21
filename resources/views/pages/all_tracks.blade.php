@@ -96,7 +96,7 @@
 @endsection
   
 @section('scripts')
-
+<script src="https://unpkg.com/wavesurfer.js"></script>
 <script>
 
 let wavesurfer;

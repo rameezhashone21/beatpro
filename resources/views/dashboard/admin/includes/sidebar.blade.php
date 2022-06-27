@@ -103,6 +103,20 @@
         </li>
         @endpermission
 
+        @permission('view.my-songs')
+        <li
+          class="nav-item {{ request()->is('admin/users') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'menu-open' : '' }}">
+          <a href="{{ url('/admin/my-songs') }}"
+            class="nav-link {{ request()->is('admin/my-songs') || request()->is('admin/roles-permissions') || request()->is('admin/user/*') || request()->is('admin/role/*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              My Songs
+              <i class=""></i>
+            </p>
+          </a>
+        </li>
+        @endpermission
+
         
 
         @permission('view.pages')

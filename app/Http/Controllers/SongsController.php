@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 use App\Models\Song;
 use App\Models\Album;
-
+use App\Models\User_song;
+use Illuminate\Support\Facades\Auth;
 
 class SongsController extends Controller
 {
@@ -133,6 +135,16 @@ class SongsController extends Controller
     return view('dashboard.admin.songs.edit', compact('song','albums'));
   }
 
+  public function my_songs()
+  {
+    $user_id = Auth::id(); 
+
+    $user_songs=User_song::select('song_id')->where('user_id',$user_id)->get();
+    $songs=Song::whereIn('id',$user_songs)->get();
+
+    return view('dashboard.front.songs.my_songs', compact('songs'));
+  }
+
 
   /**
    * Update the specified resource in storage.
@@ -232,6 +244,7 @@ class SongsController extends Controller
      */
     public function cart()
     {
+      $carts = session()->get('cart');
         return view('pages.cart');
     }
   
@@ -250,7 +263,9 @@ class SongsController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $song->id,
                 "name" => $song->title,
+                "song_file" => $song->song_file,
                 "quantity" => 1,
                 "price" => $song->price,
                 "image" => $song->image

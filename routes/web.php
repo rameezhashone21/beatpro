@@ -10,6 +10,9 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\AlbumsController;
 use App\Http\Controllers\SongsController;
+use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AccessController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppSettingController;
@@ -42,11 +45,35 @@ Route::get('add-to-cart/{id}', [SongsController::class, 'addToCart'])->name('add
 Route::patch('update-cart', [SongsController::class, 'cartupdate'])->name('update.cart');
 Route::delete('remove-from-cart', [SongsController::class, 'remove'])->name('remove.from.cart');
 
+// Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PaypalController@payWithPaypal',));
+// Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalController@postPaymentWithpaypal',));
+// Route::get('paypal', array('as' => 'status','uses' => 'PaypalController@getPaymentStatus',));
+
+Route::get('/paywithpaypal', [PaypalController::class, 'payWithPaypal'])->name('paywithpaypal');
+Route::get('/songpaywithpaypal', [CheckoutController::class, 'payWithPaypal'])->name('songpaywithpaypal');
+Route::post('/paypal', [PaypalController::class, 'postPaymentWithpaypal'])->name('paypal');
+Route::get('/paypal', [PaypalController::class, 'getPaymentStatus'])->name('status');
+
+Route::get('stripe', [StripePaymentController::class, 'stripe']);
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+
+Route::post('checkout', [CheckoutController::class, 'postPaymentWithpaypal'])->name('checkout');
+
 Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('checkpermission:dashboard');
+    ->middleware('checkpermission:user.dashboard.view');
 });
+
+Route::prefix('/user')->group(function () {
+  //View My Songs
+  Route::get('/my-songs', [SongsController::class, 'my_songs'])
+  ->name('my-songs');
+
+  Route::get('/membership', [SongsController::class, 'my_songs'])
+  ->name('membership');
+});
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
@@ -58,6 +85,9 @@ require __DIR__ . '/auth.php';
 | Admin dashboard Routes
 |--------------------------------------------------------------------------
 */
+
+
+
 
 Route::prefix('/admin')->group(function () {
   Route::middleware(['checkrole:admin'])->group(function () {

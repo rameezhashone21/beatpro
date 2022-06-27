@@ -29,4 +29,14 @@ class Song extends Model
     {
         return $this->belongsTo(Album::class, 'album_id');
     }
+
+    public function users()
+    {
+      return $this->belongsToMany(
+        User::class,
+        'user_songs',
+        'song_id',
+        'user_id');
+      }
+
 }

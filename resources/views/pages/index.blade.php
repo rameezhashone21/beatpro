@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Home</title>
 </head>
 
@@ -66,6 +67,7 @@
                     {{ session('success') }}
                     </div> 
                     @endif
+                    
                     <div class="py-4" id="waveform"></div>
                         <!-- <form action="#" class="position-relative">
                             <input type="text" placeholder="search..."
@@ -453,12 +455,22 @@ $('.controls .btn').on('click', function(){
 
 
 function loginalert() {
-  alert("Please Log In to Download!");
+    Swal.fire({
+    // title: 'Error!',
+    text: 'Please Log In To Download',
+    icon: 'error',
+    confirmButtonText: 'Close'
+    })
 }
 
 
 function purchasealert() {
-  alert("Please Purchase this song to Download. \rYou can also purchase Membership to Download all songs!");
+    Swal.fire({
+    // title: 'Error!',
+    text: 'Please Purchase this song to Download. \rYou can also purchase Membership to Download all songs!',
+    icon: 'error',
+    confirmButtonText: 'Close'
+    })
 }
 
 // wavesurfer.load('audio.wav');

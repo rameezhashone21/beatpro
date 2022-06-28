@@ -53,6 +53,7 @@ Route::get('/paywithpaypal', [PaypalController::class, 'payWithPaypal'])->name('
 Route::get('/songpaywithpaypal', [CheckoutController::class, 'payWithPaypal'])->name('songpaywithpaypal');
 Route::post('/paypal', [PaypalController::class, 'postPaymentWithpaypal'])->name('paypal');
 Route::get('/paypal', [PaypalController::class, 'getPaymentStatus'])->name('status');
+Route::get('/songpaypal', [CheckoutController::class, 'getPaymentStatus'])->name('songstatus');
 
 Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
@@ -70,7 +71,7 @@ Route::prefix('/user')->group(function () {
   Route::get('/my-songs', [SongsController::class, 'my_songs'])
   ->name('my-songs');
 
-  Route::get('/membership', [SongsController::class, 'my_songs'])
+  Route::get('/membership', [SongsController::class, 'membership'])
   ->name('membership');
 });
 

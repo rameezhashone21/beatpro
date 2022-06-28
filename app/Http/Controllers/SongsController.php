@@ -145,6 +145,16 @@ class SongsController extends Controller
     return view('dashboard.front.songs.my_songs', compact('songs'));
   }
 
+   /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function membership()
+  {
+    return view('dashboard.front.membership');
+  }
+
 
   /**
    * Update the specified resource in storage.

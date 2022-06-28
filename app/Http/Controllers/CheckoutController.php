@@ -37,7 +37,7 @@ class CheckoutController extends Controller
     }
     public function postPaymentWithpaypal(Request $request)
     {
-        if (Auth::check() && auth()->user()->subscription=="1") {
+        if (Auth::check()) {
 
             $user_id = Auth::id();
 
@@ -75,8 +75,8 @@ class CheckoutController extends Controller
                 ->setDescription('Enter Your transaction description');
     
             $redirect_urls = new RedirectUrls();
-            $redirect_urls->setReturnUrl(URL::route('status'))
-                ->setCancelUrl(URL::route('status'));
+            $redirect_urls->setReturnUrl(URL::route('songstatus'))
+                ->setCancelUrl(URL::route('songstatus'));
     
             $payment = new Payment();
             $payment->setIntent('Sale')
@@ -91,7 +91,7 @@ class CheckoutController extends Controller
                     return Redirect::route('songpaywithpaypal');                
                 } else {
                     \Session::put('error','Some error occur, sorry for inconvenient');
-                    return Redirect::route('paywithpaypal');                
+                    return Redirect::route('songpaywithpaypal');                
                 }
             }
     
@@ -137,9 +137,6 @@ class CheckoutController extends Controller
         $user_id = Auth::id(); 
         
         if ($result->getState() == 'approved') {         
-            DB::table('users')
-            ->where('id', $user_id)
-            ->update(['subscription' => 1]);
             
             return redirect()->route('my-songs')->with('success', 'Purchase Successfull ! Song has been added to your list!');
         }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User_song;
+use App\Models\Song;
 
 
 class DashboardController extends Controller
@@ -20,7 +21,9 @@ class DashboardController extends Controller
     if (Auth::user()->level() == 2) {
       return view('dashboard.admin.pages.index');
     }
-    $songs=User_song::where('user_id',$user_id)->get();
+    $song_id=User_song::select('song_id')->where('user_id',$user_id)->get();
+
+    $songs = Song::whereIn('id',$song_id)->with('albums')->get();
     // \Session::flash('error','First Purchase Subscription Plan to Buy any Song');
     return view('dashboard.front.index',compact('songs'));
   }

@@ -283,7 +283,7 @@ class SongsController extends Controller
         }
           
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Song added to cart successfully!');
+        return redirect()->back()->with('success', 'Beat added to cart successfully!');
     }
   
     /**
@@ -314,7 +314,7 @@ class SongsController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Song removed successfully');
+            session()->flash('success', 'Beat removed successfully');
         }
     }
 }

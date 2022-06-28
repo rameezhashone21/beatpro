@@ -89,9 +89,19 @@
         e.preventDefault();
   
         var ele = $(this);
-  
-        if(confirm("Are you sure want to remove?")) {
-            $.ajax({
+        Swal.fire({
+        title: 'Do you want to delete this beat?',
+        showDenyButton: true,
+        confirmButtonText: 'Yes',
+        denyButtonText: 'No',
+        customClass: {
+        actions: 'my-actions',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+    }
+    }).then((result) => {
+    if (result.isConfirmed) {
+    $.ajax({
                 url: '{{ route('remove.from.cart') }}',
                 method: "DELETE",
                 data: {
@@ -102,7 +112,9 @@
                     window.location.reload();
                 }
             });
-        }
+  }
+})
+
     });
   
 

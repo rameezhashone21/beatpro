@@ -248,12 +248,11 @@ body.offcanvas-active {
 }
 
 .swal2-styled.swal2-confirm {
-    border: 0 !important;
-    border-radius: 0rem !important;
-    background: initial;
     background-image: -webkit-linear-gradient(90deg, rgb(255,17,21) 0%, rgb(253,135,2) 100%) !important;
-    color: #fff;
-    font-size: 1em;
+}
+
+.swal2-styled.swal2-deny {
+    background-image: -webkit-linear-gradient(90deg, rgb(255,17,21) 0%, rgb(253,135,2) 100%) !important;
 }
 
 .banner h1 {

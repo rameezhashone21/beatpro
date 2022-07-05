@@ -756,6 +756,83 @@ font-weight: bold;
 }
 /*========= MEDIA QUERIES===========*/
 
+  .btn-login-google,
+    .btn-login-fb {
+        font-weight: normal;
+        padding: 18px 40px;
+        border-radius: 2px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    
+    .btn-login-google {
+        color: #fff;
+        background-color: #fd8102;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.06));
+    }
+    
+    .btn-login-fb {
+        background-color: #fff;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
+        color: #254ba2;
+    }
+    
+    .btn-login-google:hover,
+    .btn-login-fb:hover {
+        color: #fff;
+        background: linear-gradient(#feb34e 0%, #ff1314 100%);
+    }
+    
+    .show-password-icon {
+        top: 11px;
+        right: 14px;
+        background-color: transparent;
+    }
+    
+    .login-input {
+        height: 50px;
+        background-color: transparent;
+        border: 1px solid #ebebeb;
+        border-radius: 25px;
+        transition: 0.4s;
+        color: #fff;
+    }
+    
+    .login-input:focus {
+        border: 1px solid #feb34e;
+        background-color: transparent;
+        box-shadow: none;
+        color: #fff;
+    }
+    
+    .btn-submit-login {
+        height: 55px;
+        background: linear-gradient(#feb34e 0%, #ff1314 100%);
+        filter: drop-shadow(3.99px 22.65px 57px rgba(0, 0, 0, 0.06));
+        color: #fff;
+        padding: 0 120px;
+    }
+    
+    .btn-submit-login:hover {
+        background: #fff;
+        color: #000;
+    }
+    
+    .login-hr {
+        opacity: 1;
+        background-color: #fff;
+        width: 30px;
+        margin: 2rem 0;
+    }
+    
+    .login-text {
+        width: 70%;
+        font-weight: normal;
+        font-size: 48px;
+        letter-spacing: -0.01em;
+        line-height: 60px;
+    }
+
 @media (max-width: 1399.98px) {
     .Contact_Us {
         font-size: 100px;

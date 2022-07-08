@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/plugins.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css')}}">
-    <title>Got Dem Beatz - Signup</title>
+    <title>Signup</title>
 </head>
 <style>
     .btn-login-google,

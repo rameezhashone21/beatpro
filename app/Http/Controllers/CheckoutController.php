@@ -35,6 +35,15 @@ class CheckoutController extends Controller
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_configuration['client_id'], $paypal_configuration['secret']));
         $this->_api_context->setConfig($paypal_configuration['settings']);
     }
+
+    public function index()
+    {
+      // Get checkout pages
+  
+      return view('pages.checkout1');
+    }
+
+    
     public function postPaymentWithpaypal(Request $request)
     {
         if (Auth::check()) {

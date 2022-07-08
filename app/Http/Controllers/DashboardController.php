@@ -23,7 +23,7 @@ class DashboardController extends Controller
     }
     $song_id=User_song::select('song_id')->where('user_id',$user_id)->get();
 
-    $songs = Song::whereIn('id',$song_id)->with('albums')->get();
+    $songs = Song::with('albums')->get();
     // \Session::flash('error','First Purchase Subscription Plan to Buy any Song');
     return view('dashboard.front.index',compact('songs'));
   }

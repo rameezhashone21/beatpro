@@ -1,65 +1,73 @@
 @extends('layout')
   
 @section('content')
-<div class="container">
-<div class="col-12  text-center py-md-5 py-3">
-    <h3 class="fs-1 position-relative">Shopping Cart</h3>
-</div>
-@if(session('success'))
-<div class="alert alert-success">
-{{ session('success') }}
-</div> 
-@endif
-<div class="py-4" id="waveform"></div>
-                        <div class="table-responsive my-4">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Track</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
-                                @php $total = 0 @endphp
-                                @if(session('cart'))
-                                @foreach(session('cart') as $id => $details)
-                                @php $total += $details['price'] * $details['quantity'] @endphp
-                                <tr data-id="{{ $id }}">
-                                        <td data-th="Product">
-                                            <img src="../storage/songs/{{ $details['image'] }}" class="img-fluid" alt="" width="60px" height="50">
-                                        <button class="border-0 play-pause-button py-2 px-2 bg-transparent position-relative" value="{{ $details['song_file'] }}" 
-                                        id="playSong" onclick="dosomething(this)">
-                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z"/></svg>
-                                        </button>
-                                        </td>
-                                        <td class="td_size">{{ $details['name'] }}</td>
-                                        <td class="td_size">${{ $details['price'] }}</td>
-                                        <td class="actions" data-th="">
-                                        <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        <tr>
-                        <td colspan="6" class="text-right"><h3><strong>Total: ${{ $total }}</strong></h3></td>
-                        </tr>  
-                        <tr>
-                        <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('checkout') !!}" >
-                        {{ csrf_field() }}
-                        <input id="amount" type="hidden" class="form-control" name="amount" value="{{ $total }}" autofocus>
-                        <td colspan="6" class="text-right">
-                            <a href="{{ url('/') }}" class="btn-1 btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
-                        <button type="submit" class="btn-1 btn btn-success">Purchase</a>
-                        </td>
-                        </form>
-                        </tr>
-                        </tbody>
-                            </table>
-                            </div>
 
+        <section class="my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bg-white shadow rounded pb-3">
+                            <div class="table-responsive">
+                                <table class="table cart-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>BEAT</th>
+                                            <th>PRICE</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    @if(session('success'))
+                                    <div class="alert alert-success">
+                                    {{ session('success') }}
+                                    </div>
+                                    @endif 
+                                    <tbody>
+                                    @php $total = 0 @endphp
+                                    @if(session('cart'))
+                                    @foreach(session('cart') as $id => $details)
+                                    @php $total += $details['price'] * $details['quantity'] @endphp
+                                        <tr data-id="{{ $id }}">
+                                            <td>
+                                                <img src="../storage/songs/{{ $details['image'] }}" alt="" class="cart-thumb">
+                                                <span class="ms-3" style="font-size: 14px;">{{ $details['name'] }}</span>
+                                            </td>
+                                            <td>${{ $details['price'] }}</td>
+                                            <td>
+                                                <a class="remove-from-cart">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26.579" height="29.199" viewBox="0 0 26.579 29.199">
+                                                        <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(-3 -1.5)">
+                                                        <path id="Path_4080" data-name="Path 4080" d="M4.5,9H28.08" transform="translate(0 -0.76)" fill="none" stroke="#ff1314" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                        <path id="Path_4081" data-name="Path 4081" d="M25.84,8.24V26.58a2.62,2.62,0,0,1-2.62,2.62H10.12A2.62,2.62,0,0,1,7.5,26.58V8.24m3.93,0V5.62A2.62,2.62,0,0,1,14.05,3h5.24a2.62,2.62,0,0,1,2.62,2.62V8.24" transform="translate(-0.38 0)" fill="none" stroke="#ff1314" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                        <path id="Path_4082" data-name="Path 4082" d="M15,16.5v7.86" transform="translate(-1.33 -1.71)" fill="none" stroke="#ff1314" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                        <path id="Path_4083" data-name="Path 4083" d="M21,16.5v7.86" transform="translate(-2.09 -1.71)" fill="none" stroke="#ff1314" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        @else
+                                        <td colspan="3" class="text-center fw-bold">No Beats Found</td>
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="m-5">
+                                <h3 class="fs-5 mb-0 ps-2" style="border-left: 2px solid #fd743d;">CART TOTALS</h3>
+                                <div class="d-flex align-items-center justify-content-between ms-2 mt-3">
+                                    <p class="mb-0" style="font-size: 18px;">CART SUBTOTAL</p>
+                                    <p class="fw-bold fs-4 mb-0">${{ $total }}</p>
+                                </div>
+                                <div class="d-sm-flex justify-content-center text-center text-sm-start">
+                                    <a href="{{ url('/') }}" class="btn-2 text-dark me-sm-4 text-capitalize mb-3 mb-sm-0" style="border-color: #707070;">Go back to home</a>
+                                    <a href="{{ route('checkout1') }}" class="btn-1 text-white">Proceed To Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 @endsection
   
 @section('scripts')

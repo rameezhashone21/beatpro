@@ -833,6 +833,60 @@ font-weight: bold;
         line-height: 60px;
     }
 
+/* start checkout and cart page */
+
+    
+.banner-cart {
+    height: 100vh;
+}
+
+.cart-thumb {
+    width: 115px;
+    height: 115px;
+}
+
+.table.cart-table>thead {
+    vertical-align: bottom;
+    background: #000;
+    color: #fff;
+}
+
+.table.cart-table>thead>tr>th,
+.table.cart-table>tbody>tr>td {
+    padding: 20px 0 20px 60px;
+}
+
+.btn-2.text-dark {
+    color: #000 !important;
+}
+
+.coupon-btn {
+    background-color: #ff1314;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    height: 50px;
+}
+
+.coupon-input {
+    height: 50px;
+    background: #fff;
+    border: 1px solid #171717;
+}
+
+.btn-submit-login.btn-place-order {
+    height: auto;
+    padding: 18px 0;
+}
+
+.btn-submit-login.btn-place-order:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+/* end checkout and cart page  */
+    
 @media (max-width: 1399.98px) {
     .Contact_Us {
         font-size: 100px;

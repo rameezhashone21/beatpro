@@ -59,25 +59,24 @@ Route::get('stripe', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 
 Route::post('checkout', [CheckoutController::class, 'postPaymentWithpaypal'])->name('checkout');
-
-Route::middleware(['auth'])->group(function () {
-  Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->name('dashboard')
-    ->middleware('checkpermission:user.dashboard.view');
-});
+Route::get('checkout1', [CheckoutController::class, 'index'])->name('checkout1');
 
 Route::prefix('/user')->group(function () {
-  //View My Songs
+Route::middleware(['auth'])->group(function () {
+  
+  Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('user.dashboard')
+    ->middleware('checkpermission:user.dashboard.view');
+
   Route::get('/my-songs', [SongsController::class, 'my_songs'])
-  ->name('my-songs');
+  ->name('user.my-songs');
 
   Route::get('/membership', [SongsController::class, 'membership'])
-  ->name('membership');
+  ->name('user.membership');
+
+});
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
 

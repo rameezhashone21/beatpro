@@ -1,6 +1,15 @@
 @extends('layout')
   
 @section('content')
+<section class="banner_inner d-flex justify-content-center align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 class="banner_inner_title">Checkout</h1>
+                    </div>
+                </div>
+            </div>
+</section>
 <section class="my-5">
             <div class="container">
                 <div class="row">

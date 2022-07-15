@@ -10,91 +10,12 @@
     <link rel="stylesheet" href="{{ asset('frontend_assets/css/theme.css')}}">
     <title>Signup</title>
 </head>
-<style>
-    .btn-login-google,
-    .btn-login-fb {
-        font-weight: normal;
-        padding: 18px 40px;
-        border-radius: 2px;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-    
-    .btn-login-google {
-        color: #fff;
-        background-color: #fd8102;
-        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.06));
-    }
-    
-    .btn-login-fb {
-        background-color: #fff;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
-        color: #254ba2;
-    }
-    
-    .btn-login-google:hover,
-    .btn-login-fb:hover {
-        color: #fff;
-        background: linear-gradient(#feb34e 0%, #ff1314 100%);
-    }
-    
-    .show-password-icon {
-        top: 11px;
-        right: 14px;
-        background-color: transparent;
-    }
-    
-    .login-input {
-        height: 50px;
-        background-color: transparent;
-        border: 1px solid #ebebeb;
-        border-radius: 25px;
-        transition: 0.4s;
-        color: #fff;
-    }
-    
-    .login-input:focus {
-        border: 1px solid #feb34e;
-        background-color: transparent;
-        box-shadow: none;
-        color: #fff;
-    }
-    
-    .btn-submit-login {
-        height: 55px;
-        background: linear-gradient(#feb34e 0%, #ff1314 100%);
-        filter: drop-shadow(3.99px 22.65px 57px rgba(0, 0, 0, 0.06));
-        color: #fff;
-        padding: 0 120px;
-    }
-    
-    .btn-submit-login:hover {
-        background: #fff;
-        color: #000;
-    }
-    
-    .login-hr {
-        opacity: 1;
-        background-color: #fff;
-        width: 30px;
-        margin: 2rem 0;
-    }
-    
-    .login-text {
-        width: 70%;
-        font-weight: normal;
-        font-size: 48px;
-        letter-spacing: -0.01em;
-        line-height: 60px;
-    }
-</style>
-
-<body>
-    <main>
-        <div class="container-fluid" style="background-color: #000;">
-            <div class="row align-items-center">
-                <div class="col-lg-5 ps-0 d-none d-lg-block position-relative">
-                    <img src="{{ asset('frontend_assets/img/signup-image.png')}}" alt="" class="img-fluid w-100">
+<body class="login-body">
+    <main class="h-100">
+        <div class="container-fluid h-100 d-flex justify-content-center  align-items-center" >
+            <div class="row align-items-center justify-content-center justify-content-xl-start">
+                <div class="col-lg-5 ps-0 d-none d-xl-block position-relative">
+                    <img src="{{ asset('frontend_assets/img/signup-image.png')}}" alt="" class="mg-fluid w-100 login-left-img">
                     <h2 class="text-white position-absolute bottom-0 end-0 text-right login-text display-1">
                         Create your very own masterpiece with Us.
                     </h2>

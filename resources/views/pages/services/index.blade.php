@@ -12,7 +12,7 @@
         </section>
         @foreach($services as $key => $service)
         @if($key % 2 == 0)
-        <section class="services services_section_inner_one">
+        <section class="services services_section_inner_one membership">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 z-index-1 mb-4 mb-md-0">
@@ -34,7 +34,7 @@
             </div>
         </section>
         @else
-        <section class="services services_section_inner_one membership">
+        <section class="services services_section_inner_one">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 align-self-center mb-4 mb-md-0">

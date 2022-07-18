@@ -13,6 +13,7 @@ use App\Http\Controllers\SongsController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AccessController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AppSettingController;
@@ -73,6 +74,30 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/membership', [SongsController::class, 'membership'])
   ->name('user.membership');
+
+  Route::get('/settings', [SettingsController::class, 'index'])
+  ->name('user.setting');
+
+  Route::get('/settings/edit_profile', [SettingsController::class, 'edit_profile'])
+  ->name('user.edit_profile');
+  Route::put('/settings/update_profile/{id}', [SettingsController::class, 'update_profile'])
+  ->name('user.update_profile');
+
+  Route::get('/settings/change_password', [SettingsController::class, 'get_password'])
+  ->name('user.get_password');
+  Route::post('/settings/update_password', [SettingsController::class, 'change_password'])
+  ->name('user.change_password');
+
+  Route::get('/settings/payment_method/cards', [SettingsController::class, 'cards'])
+  ->name('user.cards');
+  Route::get('/settings/payment_method/add_card', [SettingsController::class, 'get_card'])
+  ->name('user.get_card');
+  Route::get('/settings/payment_method/edit_card/{id}', [SettingsController::class, 'edit_card'])
+  ->name('user.edit_card');
+  Route::put('/settings/payment_method/update_card', [SettingsController::class, 'update_card'])
+  ->name('user.update_card');
+  Route::post('/settings/payment_method/store_card', [SettingsController::class, 'store_card'])
+  ->name('user.store_card');
 
 });
 });

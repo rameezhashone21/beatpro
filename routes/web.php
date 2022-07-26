@@ -40,6 +40,8 @@ Route::get('/membership', [MembershipController::class, 'index']);
 Route::get('/services', [PagesController::class, 'services']);
 Route::get('/all_tracks', [PagesController::class, 'all_tracks'])->name('search');
 Route::get('/album/{id}', [PagesController::class, 'specific_album']);
+Route::get('/privacy-policy', [PagesController::class, 'privacy_policy']);
+Route::get('/terms-condition', [PagesController::class, 'terms_condition']);
 
 Route::get('cart', [SongsController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [SongsController::class, 'addToCart'])->name('add.to.cart');

@@ -36,6 +36,16 @@ class PagesController extends Controller
         return view('pages.contact');
     }
 
+    public function privacy_policy()
+    {
+        return view('pages.privacy_policy');
+    }
+
+    public function terms_condition()
+    {
+        return view('pages.terms-condition');
+    }
+
     public function services()
     {
         $services = Service::get();
